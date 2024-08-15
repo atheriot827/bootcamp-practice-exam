@@ -127,7 +127,17 @@ let subscriptions = [
   // PROBLEM #3 ///////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////
   
-  let getSubscriptionObject = function(){
+  let getSubscriptionObject = function(array, name){
+    //base - if arr is empty return null object
+    if(array.length === 0) {
+      return {name: null, costPerMonth: null};
+    }
+    //check first item in arr
+    if(array[0].name === name) {
+      return { name: array[0].name, costPerMonth: array[0].costPerMonth };
+    }
+    //recursion
+    return getSubscriptionObject(array.slice(1), name);
    
   };
   
