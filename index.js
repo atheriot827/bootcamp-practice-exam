@@ -166,6 +166,8 @@ let subscriptions = [
   /////////////////////////////////////////////////////////////////
   
   let getMultipleUsers = function(array){
+    //use filter to create a new arr containing only subs w/ more than 1 user
+    //check if users prop of the sub has more than 1 elem
     return array.filter(subscription => subscription.users.length > 1);
    
   }; 
@@ -177,8 +179,15 @@ let subscriptions = [
   // PROBLEM #6 ///////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////
   
-  let getUsersArray = function(){
-   
+  let getUsersArray = function(array){
+    //use map to create new arr contain objs w/ sub name and users
+    //return new obj w/ only the name and users props
+    return array.map(subscription => ({
+      //extract sub name
+      name: subscription.name,
+      //extract users arr
+      users: subscription.users
+    }));
   };
   
   
