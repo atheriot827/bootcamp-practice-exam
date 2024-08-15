@@ -149,8 +149,14 @@ let subscriptions = [
   
   
   
-  let updateSubscription = function(){
-    
+  let updateSubscription = function(object, updates){
+    //iterate through each update
+    updates.forEach(([key, value]) => {
+      //update the object property
+      object[key] = value;
+    });
+
+    return object;
   };
   
   
