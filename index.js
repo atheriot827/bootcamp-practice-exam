@@ -85,7 +85,15 @@ let subscriptions = [
   /////////////////////////////////////////////////////////////////
   
   
-  let cancelSubscriptions = function(){
+  let cancelSubscriptions = function(array){
+    //iterate through every other elem
+    for(let i = 0; i < array.length; i += 2) {
+      //check if cost is $10
+      if(array[i].costPerMonth > 10) {
+        //set cancel prop to true
+        array[i].cancel = true;
+      }
+    }
     
   };
   
@@ -102,8 +110,14 @@ let subscriptions = [
   /////////////////////////////////////////////////////////////////
   
   
-  let subscriptionList = function(){
-   
+  let subscriptionList = function(array) {
+   //use reduce to build a str by concat each subs details
+   return array.reduce((acc, subscription) => {
+    //add the sub name & cost to acc str
+    acc += `${subscription.name} - ${subscription.costPerMonth}\n`;
+    //return update acc str
+    return acc;
+   }, ''); //start with empty str as init val
   };
   
   
