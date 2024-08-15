@@ -165,7 +165,8 @@ let subscriptions = [
   // PROBLEM #5 ///////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////
   
-  let getMultipleUsers = function(){
+  let getMultipleUsers = function(array){
+    return array.filter(subscription => subscription.users.length > 1);
    
   }; 
   
